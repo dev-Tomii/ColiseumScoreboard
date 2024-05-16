@@ -1,0 +1,42 @@
+[
+    {
+        "clan": "Bichos do Mato",
+        "color": "green"
+    },
+    {
+        "clan": "Vasco",
+        "color": "gray"
+    },
+    {
+        "clan": "Inimigos da Moda",
+        "color": "red"
+    },
+    {
+        "clan": "Firebirds",
+        "color": "yellow"
+    },
+    {
+        "clan": "Complexo do Corinthians",
+        "color": "white"
+    },
+    {
+        "clan": "Strawberry Tea",
+        "color": "purple"
+    },
+    {
+        "clan": "Aurora",
+        "color": "cyan"
+    },
+    {
+        "clan": "Cruzeiro",
+        "color": "blue"
+    },
+    {
+        "clan": "Ranked Beasts",
+        "color": "orange"
+    },
+    {
+        "clan": "Patota da Moneymatch",
+        "color": "pink"
+    }
+]
