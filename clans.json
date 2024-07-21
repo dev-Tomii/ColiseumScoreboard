@@ -38,5 +38,13 @@
     {
         "clan": "Patota da Moneymatch",
         "color": "pink"
+    },
+    {
+        "clan": "Olimpo",
+        "color": "yellowteam"
+    },
+    {
+        "clan": "BlackWater WWC",
+        "color": "brown"
     }
 ]

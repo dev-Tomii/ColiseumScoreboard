@@ -16,7 +16,7 @@ def read_players_clan(clan):
     with open('lista.json', "r") as file:
         lista = json.load(file)     
         p = []  
-        for i in lista['jogadores']:
+        for i in lista:
             if i['clan'] == clan:
                 p.append(i['nome'])
     file.close()
@@ -31,7 +31,7 @@ def getCost(player):
     with open('lista.json', "r") as file:
         lista = json.load(file)     
         p = 0
-        for i in lista['jogadores']:
+        for i in lista:
             if i['nome'] == player:
                 p = i["custo"]
     file.close()
