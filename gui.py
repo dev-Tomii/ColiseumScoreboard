@@ -20,12 +20,13 @@ c2_p1 = tk.StringVar(value='Player 1')
 c2_p2 = tk.StringVar(value='Player 2')
 c2_p3 = tk.StringVar(value='Player 3')
 c2_p4 = tk.StringVar(value='Player 4')
+gamemode = tk.StringVar(value='3v3')
 
 # Frames
 clan1frame = ttk.LabelFrame(root, text="Clan 1", padding=(20, 10))
-clan1frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
+clan1frame.grid(rowspan=2,row=0, column=0, padx=20, pady=20, sticky="nsew")
 clan2frame = ttk.LabelFrame(root, text="Clan 2", padding=(20, 10))
-clan2frame.grid(row=0, column=2, padx=20, pady=20, sticky="nsew")
+clan2frame.grid(rowspan=2,row=0, column=2, padx=20, pady=20, sticky="nsew")
 
 # Clan 1
 clan1box = ttk.Combobox(clan1frame, values=f.read_clans(), textvariable=c1_name, justify="center")
@@ -61,9 +62,18 @@ c2_p4box.grid(row=2, column=1, padx=10, pady=5)
 
 # Save Button
 save_button = ttk.Button(root, text='Salvar', style='Accent.TButton')
-save_button.grid(row=0, column=1, padx=20, pady=10, ipadx=5, ipady=5)
+save_button.grid(row=1, column=1, padx=20, pady=10, ipadx=5, ipady=5)
+radio_frame = ttk.LabelFrame(root, text='Gamemode', labelanchor='n')
+radio_frame.grid(row=0, column=1, padx=20, pady=10)
 
-# Commands
+Radio2s = ttk.Radiobutton(radio_frame, text='2v2', value='3v3', variable=gamemode)
+Radio2s.grid(row=0, column=0, padx=5, pady=10)
+Radio3s = ttk.Radiobutton(radio_frame, text='3v3', value='3v3', variable=gamemode)
+Radio3s.grid(row=1, column=0, padx=5, pady=10)
+Radio4s = ttk.Radiobutton(radio_frame, text='4v4', value='3v3', variable=gamemode)
+Radio4s.grid(row=2, column=0, padx=5, pady=10)
+
+# Commands        
 def update_values1(self):
     f.checkDirectories()
     c1_p1box.configure(values=f.read_players_clan(c1_name.get()))
@@ -74,7 +84,7 @@ def update_values1(self):
     c1_p2.set('')
     c1_p3.set('')
     c1_p4.set('')
-    f.updateImage1(c1_name.get())
+    f.updateImage1(c1_name.get(), gamemode)
 
 def update_values2(self):
     f.checkDirectories()
@@ -86,7 +96,7 @@ def update_values2(self):
     c2_p2.set('')
     c2_p3.set('')
     c2_p4.set('')
-    f.updateImage1(c2_name.get())
+    f.updateImage2(c2_name.get(), gamemode)
     
 def save():
     c1_list = []
