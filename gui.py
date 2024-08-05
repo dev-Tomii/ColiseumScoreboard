@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import sv_ttk
 import functions as f
+f.verifyDB()
 
 root = tk.Tk()
 root.title("Coliseum Scoreboard")

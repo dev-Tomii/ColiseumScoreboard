@@ -1,7 +1,27 @@
 import json
 import os
+import requests
+from os.path import exists, isdir
 import shutil
 
+def verifyDB():
+    if (not exists('./players.json')):
+        downloadPlayers()
+    if (not exists('./clans.json')):
+        downloadClans()
+
+def downloadPlayers():
+    data = requests.get('https://api.npoint.io/73701443fb9f9a913c0b')
+    player = json.loads(data.text)
+    with open('./players.json', 'w') as f:
+        f.write(json.dumps(player, indent=4))
+        
+def downloadClans():
+    raw = requests.get('https://api.npoint.io/6488fb58f82a76e31664')
+    response = json.loads(raw.text)
+    with open('./clans.json', 'w') as f:
+        f.write(json.dumps(response, indent=4))
+        
 def read_clans():
     with open('clans.json', "r") as file:
         lista = json.load(file)     
@@ -13,10 +33,10 @@ def read_clans():
     return clans
 
 def read_players_clan(clan):
-    with open('lista.json', "r") as file:
+    with open('players.json', "r") as file:
         lista = json.load(file)     
         p = []  
-        for i in lista:
+        for i in lista['jogadores']:
             if i['clan'] == clan:
                 p.append(i['nome'])
     file.close()
@@ -24,14 +44,14 @@ def read_players_clan(clan):
     return p
 
 def checkDirectories():
-    if (not os.path.isdir('Data')):
+    if (not isdir('Data')):
         os.mkdir("Data")
 
 def getCost(player):
-    with open('lista.json', "r") as file:
+    with open('players.json', "r") as file:
         lista = json.load(file)     
         p = 0
-        for i in lista:
+        for i in lista['jogadores']:
             if i['nome'] == player:
                 p = i["custo"]
     file.close()
