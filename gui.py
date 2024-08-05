@@ -23,11 +23,20 @@ c2_p3 = tk.StringVar(value='Player 3')
 c2_p4 = tk.StringVar(value='Player 4')
 gamemode = tk.StringVar(value='3v3')
 
+# Menu
+mb = ttk.Menubutton(root, text='Opcões')
+
+mb.menu = tk.Menu(mb)
+mb['menu'] = mb.menu
+mb.menu.add_command(accelerator='CTRL+R', label='Atualizar DB')
+
+mb.grid(row=0, column=0, padx=0, pady=(0, 10), sticky='w')
+
 # Frames
-clan1frame = ttk.LabelFrame(root, text="Clan 1", padding=(20, 10))
-clan1frame.grid(rowspan=2,row=0, column=0, padx=20, pady=20, sticky="nsew")
-clan2frame = ttk.LabelFrame(root, text="Clan 2", padding=(20, 10))
-clan2frame.grid(rowspan=2,row=0, column=2, padx=20, pady=20, sticky="nsew")
+clan1frame = ttk.LabelFrame(root, text="Clan 1")
+clan1frame.grid(rowspan=2,row=1, column=0, padx=20, pady=(10,20), sticky="nsew")
+clan2frame = ttk.LabelFrame(root, text="Clan 2")
+clan2frame.grid(rowspan=2,row=1, column=2, padx=20, pady=(10,20), sticky="nsew")
 
 # Clan 1
 clan1box = ttk.Combobox(clan1frame, values=f.read_clans(), textvariable=c1_name, justify="center")
@@ -63,9 +72,9 @@ c2_p4box.grid(row=2, column=1, padx=10, pady=5)
 
 # Save Button
 save_button = ttk.Button(root, text='Salvar', style='Accent.TButton')
-save_button.grid(row=1, column=1, padx=20, pady=10, ipadx=5, ipady=5)
+save_button.grid(row=3, column=1, padx=20, pady=10, ipadx=5, ipady=5)
 radio_frame = ttk.LabelFrame(root, text='Gamemode', labelanchor='n')
-radio_frame.grid(row=0, column=1, padx=20, pady=10)
+radio_frame.grid(row=2, column=1, padx=20, pady=10)
 
 Radio2s = ttk.Radiobutton(radio_frame, text='2v2', value='3v3', variable=gamemode)
 Radio2s.grid(row=0, column=0, padx=5, pady=10)

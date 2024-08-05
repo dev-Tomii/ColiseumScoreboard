@@ -10,6 +10,10 @@ def verifyDB():
     if (not exists('./clans.json')):
         downloadClans()
 
+def downloadDB():
+    downloadClans()
+    downloadPlayers()
+
 def downloadPlayers():
     data = requests.get('https://api.npoint.io/73701443fb9f9a913c0b')
     player = json.loads(data.text)
@@ -37,7 +41,7 @@ def read_players_clan(clan):
         lista = json.load(file)     
         p = []  
         for i in lista['jogadores']:
-            if i['clan'] == clan:
+            if i['clan'].lower() == clan.lower():
                 p.append(i['nome'])
     file.close()
     p.sort()
@@ -88,7 +92,7 @@ def updateImage1(clan, gamemode):
     with open('clans.json', "r") as file:
         lista = json.load(file)     
         for i in lista:
-            if i['clan'] == clan:
+            if i['clan'].lower() == clan.lower():
                 shutil.copy(f'./img/{gamemode.get()}/Left/{i['color']}.png', f'./Data/{i['color']}.png')
                 os.rename(f'./Data/{i['color']}.png', f'./Data/clan1_img.png')
     file.close()
@@ -99,7 +103,7 @@ def updateImage2(clan, gamemode):
     with open('clans.json', "r") as file:
         lista = json.load(file)     
         for i in lista:
-            if i['clan'] == clan:
+            if i['clan'].lower() == clan.lower():
                 shutil.copy(f'./img/{gamemode.get()}/Right/{i['color']}.png', f'./Data/{i['color']}.png')
                 os.rename(f'./Data/{i['color']}.png', f'./Data/clan2_img.png')
     file.close()
