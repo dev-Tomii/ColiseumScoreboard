@@ -2,7 +2,7 @@
 This is a Scoreboard for OBS made in Python for the ColiseuDeClas Stream that [YaksaTH](https://twitch.tv/yaksath) is running.
 
 ## Guide
- - First, the program is uncompiled here, just raw code. But if you want to compile it use [auto-py-to-exe](https://pypi.org/project/auto-py-to-exe/) and follow the [CTkinter rules](https://customtkinter.tomschimansky.com/documentation/packaging)
+ - First, the program is uncompiled here, just raw code. But if you want to compile it use [auto-py-to-exe](https://pypi.org/project/auto-py-to-exe/)
  - Now, run `py gui.py` to display the GUI and start working
 
  
