@@ -1,50 +1,42 @@
 [
     {
         "clan": "Bichos do Mato",
-        "color": "green"
+        "file": "bichosdomato.png"
     },
     {
         "clan": "Vasco",
-        "color": "gray"
+        "file": "vasco.png"
     },
     {
         "clan": "Inimigos da Moda",
-        "color": "red"
+        "file": "inimigos.png"
     },
     {
         "clan": "Firebirds",
-        "color": "yellow"
+        "file": "firebirds.png"
     },
     {
         "clan": "Complexo do Corinthians",
-        "color": "white"
-    },
-    {
-        "clan": "Strawberry Tea",
-        "color": "purple"
+        "file": "corinthians.png"
     },
     {
         "clan": "Aurora",
-        "color": "cyan"
+        "file": "aurora.png"
     },
     {
         "clan": "Cruzeiro",
-        "color": "blue"
+        "file": "cruzeiro.png"
     },
     {
         "clan": "Ranked Beasts",
-        "color": "purple"
+        "file": "rankedbeast.png"
     },
     {
         "clan": "Patota da Moneymatch",
-        "color": "pink"
+        "file": "patota.png"
     },
     {
         "clan": "Olimpo",
-        "color": "orange"
-    },
-    {
-        "clan": "BlackWater WWC",
-        "color": "brown"
+        "file": "olimpo.png"
     }
 ]

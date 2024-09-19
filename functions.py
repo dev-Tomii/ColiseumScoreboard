@@ -7,11 +7,8 @@ import shutil
 def verifyDB():
     if (not exists('./players.json')):
         downloadPlayers()
-    if (not exists('./clans.json')):
-        downloadClans()
 
 def downloadDB():
-    downloadClans()
     downloadPlayers()
 
 def downloadPlayers():
@@ -93,8 +90,8 @@ def updateImage1(clan, gamemode):
         lista = json.load(file)     
         for i in lista:
             if i['clan'].lower() == clan.lower():
-                shutil.copy(f'./img/{gamemode.get()}/Left/{i['color']}.png', f'./Data/{i['color']}.png')
-                os.rename(f'./Data/{i['color']}.png', f'./Data/clan1_img.png')
+                shutil.copy(f'./img/{gamemode.get()}/Left/{i['file']}', f'./Data/{i['file']}')
+                os.rename(f'./Data/{i['file']}', f'./Data/clan1_img.png')
     file.close()
 
 def updateImage2(clan, gamemode):
