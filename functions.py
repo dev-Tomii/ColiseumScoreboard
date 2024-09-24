@@ -48,39 +48,29 @@ def checkDirectories():
     if (not isdir('Data')):
         os.mkdir("Data")
 
-def getCost(player):
-    with open('players.json', "r") as file:
-        lista = json.load(file)     
-        p = 0
-        for i in lista['jogadores']:
-            if i['nome'] == player:
-                p = i["custo"]
-    file.close()
-    return p
-
-def writeFiles(c1, c2):
+def writeFiles(cp1, cp2, cc1, cc2):
     with open("./Data/clan1_name.txt", "w") as f:
-        f.write(c1[0])
+        f.write(cp1[0])
         f.close()
     for i in range(1,5):
         with open(f"./Data/clan1_p{i}.txt", "w") as f:
-            f.write(c1[i])
+            f.write(cp1[i])
             f.close()
-    for i in range(1,5):
-        with open(f"./Data/clan1_p{i}_cost.txt", "w") as f:
-            f.write(str(getCost(c1[i])))
+    for i in range(0,4):
+        with open(f"./Data/clan1_p{i+1}_cost.txt", "w") as f:
+            f.write(str(cc1[i]))
             f.close()
 
     with open("./Data/clan2_name.txt", "w") as f:
-        f.write(c2[0])
+        f.write(cp2[0])
         f.close()
     for i in range(1,5):
         with open(f"./Data/clan2_p{i}.txt", "w") as f:
-            f.write(c2[i])
+            f.write(cp2[i])
             f.close()
-    for i in range(1,5):
-        with open(f"./Data/clan2_p{i}_cost.txt", "w") as f:
-            f.write(str(getCost(c2[i])))
+    for i in range(0,4):
+        with open(f"./Data/clan2_p{i+1}_cost.txt", "w") as f:
+            f.write(str(cc2[i]))
             f.close()
     
 def updateImage1(clan, gamemode):
@@ -101,6 +91,6 @@ def updateImage2(clan, gamemode):
         lista = json.load(file)     
         for i in lista:
             if i['clan'].lower() == clan.lower():
-                shutil.copy(f'./img/{gamemode.get()}/Right/{i['color']}.png', f'./Data/{i['color']}.png')
-                os.rename(f'./Data/{i['color']}.png', f'./Data/clan2_img.png')
+                shutil.copy(f'./img/{gamemode.get()}/Right/{i['file']}', f'./Data/{i['file']}')
+                os.rename(f'./Data/{i['file']}', f'./Data/clan2_img.png')
     file.close()
