@@ -48,7 +48,7 @@ def checkDirectories():
     if (not isdir('Data')):
         os.mkdir("Data")
 
-def writeFiles(cp1, cp2, cc1, cc2):
+def writeFiles(cp1, cp2, cc1, cc2, stocks):
     with open("./Data/clan1_name.txt", "w") as f:
         f.write(cp1[0])
         f.close()
@@ -71,6 +71,11 @@ def writeFiles(cp1, cp2, cc1, cc2):
     for i in range(0,4):
         with open(f"./Data/clan2_p{i+1}_cost.txt", "w") as f:
             f.write(str(cc2[i]))
+            f.close()
+            
+    for i in range(0,2):
+        with open(f"./Data/clan{i + 1}_stocks.txt", "w") as f:
+            f.write(str(stocks[i]))
             f.close()
     
 def updateImage1(clan, gamemode):
