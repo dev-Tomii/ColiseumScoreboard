@@ -82,12 +82,13 @@ c2_stock.set(12)
 save_button = ttk.Button(stockframe, text='Salvar', style='Accent.TButton')
 save_button.grid(row=1, column=0, columnspan=3, padx=10, pady=10, ipadx=5, ipady=5, sticky="ew")
 
-Radio2s = ttk.Radiobutton(stockframe, text='2v2', value='4v4', variable=gamemode)
+Radio2s = ttk.Radiobutton(stockframe, text='2v2', value='2v2', variable=gamemode)
 Radio2s.grid(row=2, column=0, padx=5, pady=5)
-Radio3s = ttk.Radiobutton(stockframe, text='3v3', value='4v4', variable=gamemode)
+Radio3s = ttk.Radiobutton(stockframe, text='3v3', value='3v3', variable=gamemode)
 Radio3s.grid(row=2, column=1, padx=5, pady=5)
 Radio4s = ttk.Radiobutton(stockframe, text='4v4', value='4v4', variable=gamemode)
 Radio4s.grid(row=2, column=2, padx=5, pady=5)
+Radio4s.invoke()
 
 # Commands
 def getCost(player):
